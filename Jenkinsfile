@@ -3,7 +3,6 @@ pipeline {
     docker {
       image 'maven:3.3.3'
       reuseNode true
-
     }
 
   }
@@ -18,6 +17,19 @@ pipeline {
     stage('Build') {
       steps {
         sh 'mvn install'
+      }
+    }
+
+    stage('Test') {
+      steps {
+        sh 'mvn test'
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        echo 'Deployment in progress'
+        echo 'Deployed'
       }
     }
 
